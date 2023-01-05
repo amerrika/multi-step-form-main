@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Multi-step form</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Footer Styles -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <main>
+    <!-- App Container -->
+    <section class="app">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="step step-1">
+          <div class="step-indicator step-indicator-active">1</div>
+          <div class="step-info">
+            <p>Step 1</p>
+            <p>Your info</p>
+          </div>
+        </div>
+
+        <div class="step step-2">
+          <div class="step-indicator">2</div>
+          <div class="step-info">
+            <p>Step 2</p>
+            <p>Select plan</p>
+          </div>
+        </div>
+
+        <div class="step step-3">
+          <div class="step-indicator">3</div>
+          <div class="step-info">
+            <p>Step 3</p>
+            <p>Add-ons</p>
+          </div>
+        </div>
+
+        <div class="step step-4">
+          <div class="step-indicator">4</div>
+          <div class="step-info">
+            <p>Step 4</p>
+            <p>Summary</p>
+          </div>
+        </div>
+      </div>
+      <!-- Sidebar Content -->
+      <div class="sidebar-content">
+        <!-- STEP 1 CONTENT -->
+        <div class="step-content display-none">
+          <div class="step-content-main">
+            <!-- Header -->
+            <header class="primary-header">
+              <h1 class="primary-heading">Personal info</h1>
+              <p>Please provide your name, email address and phone number.</p>
+            </header>
+            <!-- Form Content -->
+            <form class="step-1-content-form">
+              <div class="form-row">
+                <label  class="form-label">Name</label>
+                <input class="form-input" type="text" placeholder="e.g. Stephen King" required>
+              </div>
+              <div class="form-row">
+                <label  class="form-label">Email Address</label>
+                <input class="form-input" type="email" placeholder="e.g. stephenking@lorem.com" required>
+              </div>
+              <div class="form-row">
+                <label  class="form-label">Phone Number</label>
+                <input class="form-input" type="tel" placeholder="e.g. +123 456 789" required>
+              </div>
+            </form>
+          </div>
+          <!-- Button -->
+          <div class="step-content-button"> 
+            <button class="btn-next">Next Step</button>
+          </div>
+        </div>
+        <!-- STEP 2 CONTENT-->
+        <div class="step-content">
+          <div class="step-content-main">
+            <!-- Header -->
+            <header class="primary-header">
+              <h1 class="primary-heading">Select your plan</h1>
+              <p>You have the option of monthly or yearly billing</p>
+            </header>
+            <!-- Plan Options -->
+            <div class="plan-options">
+              <button class="plan-option-active">
+                <img src="assets/images/icon-arcade.svg" alt="">
+                <h3 class="tertiary-heading">Arcade</h3>
+                <p class="plan-info">$9/mo</p>
+                <p class="plan-info-extra display-none">2 months free</p>
+              </button>
+              <button>
+                <img src="assets/images/icon-advanced.svg" alt="">
+                <h3 class="tertiary-heading">Advanced</h3>
+                <p class="plan-info">$12/mo</p>
+                <p class="plan-info-extra display-none">2 months free</p>
+              </button>
+              <button>
+                <img src="assets/images/icon-pro.svg" alt="">
+                <h3 class="tertiary-heading">Pro</h3>
+                <p class="plan-info">$15/mo</p>
+                <p class="plan-info-extra display-none">2 months free</p>
+              </button>
+            </div>
+            <!-- Switch Monthly or Yearly -->
+            <div class="switch-toggle">
+              <p>Monthly</p>
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+              </label>
+              <p>Yearly</p>
+            </div>
+  
+          </div>
+          <!-- Button -->
+          <div class="step-content-button"> 
+            <button class="btn-back">Go Back</button>
+            <button class="btn-next">Next Step</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+
+  
+<!-- Footer -->
+  <footer>
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="#">Amerrika</a>.
+      </div>
+  </footer>
+</body>
+</html>
