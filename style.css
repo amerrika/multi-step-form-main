@@ -82,6 +82,16 @@ body {
 .btn-back:hover {
     color: var(--clr-accent-600);
 }
+.btn-change {
+    font-size: 1.5rem;
+    display: inline-block;
+    color: var(--clr-neutral-500);
+    text-decoration:underline;
+    cursor: pointer;
+    border: none;
+    background: none;
+    margin-top: 1rem;
+}
 
 /* The Switch Button */
  /* The switch - the box around the slider */
@@ -350,6 +360,42 @@ main {
 }
 
 /* Step 4 Content */
+
+.summary-display {
+    background-color: var(--clr-neutral-200);
+    border-radius: 1rem;
+}
+.summary-display-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem 0 2rem;
+}
+.plan-price {
+    color: var(--clr-accent-600);
+    font-weight: var(--fw-bold);
+}
+.summary-display-bottom {
+    padding: 2rem;
+}
+.summary-bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+.summary-bottom-row:first-child {
+    padding-top: 2rem;
+    border-top: 1px solid var(--clr-neutral-300);
+}
+.add-on-description {
+    font-size: 1.5rem;
+    color: var(--clr-neutral-500);
+}
+.add-on-price {
+    font-size: 1.5rem;
+    color: var(--clr-accent-600);
+}
 
 
 /* Utilities */
