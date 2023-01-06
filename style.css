@@ -92,6 +92,22 @@ body {
     background: none;
     margin-top: 1rem;
 }
+.btn-change:hover {
+    color: var(--clr-primary-blue-600);
+}
+.btn-confirm {
+    display: inline-block;
+    border: none;
+    border-radius: .5rem;
+    background-color: var(--clr-primary-blue-600);
+    color: var(--clr-neutral-300);
+    padding: 1rem 3rem;
+    font-weight: var(--fw-bold);
+    cursor: pointer;
+}
+.btn-confirm:hover {
+    background-color: rgb(71, 61, 255, .6);
+}
 
 /* The Switch Button */
  /* The switch - the box around the slider */
@@ -397,7 +413,20 @@ main {
     color: var(--clr-accent-600);
 }
 
-
+.summary-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem;
+}
+.total-description {
+    font-size: 1.5rem;
+    color: var(--clr-neutral-500);
+}
+.total-price {
+    font-weight: var(--fw-bold);
+    color: var(--clr-primary-blue-600);
+}
 /* Utilities */
 
 .primary-heading {
