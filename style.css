@@ -319,6 +319,38 @@ main {
     justify-content: space-between;
 }
 
+/* Step 3 Content */
+
+.add-ons-row {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem;
+    border: 1px solid var(--clr-neutral-500);
+    border-radius: 1rem;
+}
+.add-ons-row:hover {
+    border: 1px solid var(--clr-accent-600);
+}
+.add-ons-list {
+    display: grid;
+    gap: 1.5rem;
+}
+.add-ons-info {
+    color: var(--clr-neutral-500);
+    font-size: 1.5rem;
+}
+.add-ons-price {
+    font-size: 1.5rem;
+    color: var(--clr-primary-blue-600);
+    flex-grow: 2;
+    text-align: right;
+}
+
+/* Step 4 Content */
+
 
 /* Utilities */
 
