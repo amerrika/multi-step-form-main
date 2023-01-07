@@ -262,7 +262,7 @@ main {
     margin-top: 1rem;
 }
 
-/* Step 1 Content*/
+/* Step 1 */
 
 .step-1-content-form > :not(:first-child) {
     margin-top: 2.5rem;
@@ -287,7 +287,7 @@ main {
     border: var(--clr-accent-600) solid 1px;
 }
 
-/* Step 2 Content */
+/* Step 2 */
 
 .plan-options {
     line-height: 1.5;
@@ -345,7 +345,7 @@ main {
     justify-content: space-between;
 }
 
-/* Step 3 Content */
+/* Step 3 */
 
 .add-ons-row {
     cursor: pointer;
@@ -375,7 +375,7 @@ main {
     text-align: right;
 }
 
-/* Step 4 Content */
+/* Step 4 */
 
 .summary-display {
     background-color: var(--clr-neutral-200);
@@ -426,6 +426,29 @@ main {
 .total-price {
     font-weight: var(--fw-bold);
     color: var(--clr-primary-blue-600);
+}
+
+/* Step 5 */
+
+.step-5 {
+    height: 100%;
+    display: grid;
+    place-content: center;
+}
+
+.step-5-content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+}
+.step-5-content img {
+    height: 8rem;
+}
+.step-5-content p {
+    color: var(--clr-neutral-500);
+    max-width: 50ch;
+    line-height: 1.5;
 }
 /* Utilities */
 
