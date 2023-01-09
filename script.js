@@ -9,13 +9,21 @@ const inputPhone = reqFields[2];
 
 // Input email validation
 function validateEmail(mail) {
+  // if entered text is ok  
   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail.value)) {
+    // remove potential warning message
+    document.querySelector(".warning-email").classList.toggle("display-none");
     return true;
   }
-  alert("You have entered an invalid email address!");
-  // Clear the field
-  mail.value = "";
-  return false;
+  // if validation fails
+  else {
+    // Display the warning message
+    document.querySelector(".warning-email").classList.remove("display-none");
+    document.querySelector(".warning-email").textContent = "You have entered an invalid email address!";
+    // Clear the field
+    mail.value = "";
+    return false;
+  }
 }
 
 inputEmail.addEventListener("change", function (e) {
