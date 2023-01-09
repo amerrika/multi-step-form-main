@@ -270,7 +270,6 @@ main {
 .form-label {
     display: block;
     color: var(--clr-accent-600);
-    margin-bottom: .9rem;
 }
 .form-input {
     padding: 1.5rem;
@@ -285,6 +284,13 @@ main {
 .form-input:focus {
     outline: none;
     border: var(--clr-accent-600) solid 1px;
+}
+
+.form-row-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .9rem;
 }
 
 /* Step 2 */
@@ -472,6 +478,12 @@ main {
 }
 .step-content-button {
     text-align: right;
+}
+
+.input-warning-message {
+    color: var(--clr-primary-red-600);
+    font-weight: var(--fw-medium);
+    font-size: 1.4rem;
 }
 
 .display-none {

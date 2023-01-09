@@ -67,16 +67,25 @@
             <!-- Form Content -->
             <form class="step-1-content-form">
               <div class="form-row">
-                <label  class="form-label">Name</label>
-                <input class="form-input" type="text" placeholder="e.g. Stephen King" required>
+                <div class="form-row-wrapper">
+                  <label  class="form-label" for="name">Name</label>
+                  <p class="input-warning-message display-none">This field is required</p>
+                </div>
+                <input class="form-input" id="name" type="text" placeholder="e.g. Stephen King" required>
               </div>
               <div class="form-row">
-                <label  class="form-label">Email Address</label>
-                <input class="form-input" type="email" placeholder="e.g. stephenking@lorem.com" required>
+                <div class="form-row-wrapper">
+                  <label  class="form-label" for="email">Email Address</label>
+                  <p class="input-warning-message display-none">This field is required</p>
+                </div>
+                <input class="form-input" id="email" type="email" placeholder="e.g. stephenking@lorem.com" required>
               </div>
               <div class="form-row">
-                <label  class="form-label">Phone Number</label>
-                <input class="form-input" type="tel" placeholder="e.g. +123 456 789" required>
+                <div class="form-row-wrapper">
+                  <label  class="form-label" for="phone">Phone Number</label>
+                  <p class="input-warning-message display-none">This field is required</p>
+                </div>
+                <input class="form-input" id="phone" type="tel" placeholder="e.g. +123 456 789" required>
               </div>
             </form>
           </div>

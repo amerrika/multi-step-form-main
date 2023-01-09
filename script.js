@@ -13,6 +13,8 @@ function validateEmail(mail) {
     return true;
   }
   alert("You have entered an invalid email address!");
+  // Clear the field
+  mail.value = "";
   return false;
 }
 
@@ -26,13 +28,15 @@ inputEmail.addEventListener("change", function (e) {
 function validatePhone(number) {
   if (isNaN(number.value)) {
     alert("Your phone number is invalid");
+    // Clear the field
+    number.value = "";
     return false;
   } else {
     return true;
   }
 }
 
-inputPhone.addEventListener("change", function(e) {
+inputPhone.addEventListener("change", function (e) {
   e.preventDefault();
   validatePhone(inputPhone);
 });
