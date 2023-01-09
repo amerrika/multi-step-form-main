@@ -7,6 +7,17 @@ const inputPhone = reqFields[2];
 
 // STEP 1
 
+// Starting conditions
+
+function init(){
+    // Clear all input fields
+    for(let i = 0; i < reqFields.length; i++){
+        reqFields[i].value = "";
+    }
+}
+
+init();
+
 // Email Input Validation
 function validateEmail(mail) {
   // if entered text is ok  
@@ -73,8 +84,10 @@ btnNext.addEventListener("click", function (e) {
   else {
     for(let i = 0; i < reqFields.length; i++){
         if(reqFields[i].value == ""){
-            reqFields[i].parentElement.firstElementChild.lastElementChild.classList.remove("display-none")
-            // reqFields[i].classList.remove("display-none")
+            reqFields[i].parentElement.firstElementChild.lastElementChild.classList.remove("display-none");
+        } else {
+            // Remove the warning message
+            reqFields[i].parentElement.firstElementChild.lastElementChild.classList.add("display-none")
         }
     }
   }
