@@ -73,8 +73,7 @@ btnNext.addEventListener("click", function (e) {
   else {
     for(let i = 0; i < reqFields.length; i++){
         if(reqFields[i].value == ""){
-            console.log("Field is empty");
-            console.log(reqFields[i].parentElement)
+            reqFields[i].parentElement.firstElementChild.lastElementChild.classList.remove("display-none")
             // reqFields[i].classList.remove("display-none")
         }
     }
