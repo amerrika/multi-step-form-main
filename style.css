@@ -301,7 +301,7 @@ main {
     justify-content: space-between;
     gap: 2rem;
 }
-.plan-options button {
+.plan-option {
     /* Button Styling */
     cursor: pointer;
     display: block;
@@ -314,7 +314,7 @@ main {
     border-radius: 1rem;
     flex-basis: 33%;
 }
-.plan-options button:hover {
+.plan-option:hover {
     border: 1px solid var(--clr-accent-600);
 }
 .plan-options .tertiary-heading {

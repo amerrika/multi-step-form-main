@@ -107,10 +107,7 @@ btnNext.addEventListener("click", function (e) {
 
 // STEP 2
 
-// toggle button, switch between monthly and yearly plan data
-
-// default prikaz monthly
-
+// Toggle Button Operation: switch between monthly and yearly plan data
 const btnToggle = document.querySelector(".switch-toggle-button");
 const monPlans = document.getElementsByClassName("plan-info-m");
 const yearPlans = document.getElementsByClassName("plan-info-y");
@@ -118,13 +115,13 @@ const extraInfos = document.getElementsByClassName("plan-info-extra");
 
 btnToggle.addEventListener("click", function () {
   for (let i = 0; i < 3; i++) {
-    yearPlans[i].classList.remove("display-none");
-    extraInfos[i].classList.remove("display-none");
-    monPlans[i].classList.add("display-none");
+    yearPlans[i].classList.toggle("display-none");
+    extraInfos[i].classList.toggle("display-none");
+    monPlans[i].classList.toggle("display-none");
   }
 });
 
-// getting infos (name and price) from selected plan;
+// Getting infos (name and price) from a selected plan;
 const planOptions = document.getElementsByClassName("plan-option");
 let planPrice;
 let planTitle;
@@ -138,16 +135,19 @@ for (let i = 0; i < planOptions.length; i++) {
       planPrice = parseInt(
         planOptions[i].querySelectorAll(".plan-price")[1].textContent
       );
-      planTitle = planOptions[i].querySelector(".tertiary-heading").textContent;
-      console.log(planPrice, planTitle);
     } else {
       // monthly prices
       planPrice = parseInt(
         planOptions[i].querySelectorAll(".plan-price")[0].textContent
       );
-      planTitle = planOptions[i].querySelector(".tertiary-heading").textContent;
-      console.log(planPrice, planTitle);
     }
+    // getting title
+    planTitle = planOptions[i].querySelector(".tertiary-heading").textContent;
+    console.log(planPrice, planTitle)
+
+    //adding active class
+    planOptions[i].classList.toggle("plan-option-active");
+    // remove active class from no active buttons
   });
 }
 
