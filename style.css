@@ -321,7 +321,8 @@ main {
     margin-top: 4rem;
 }
 .plan-info-m,
-.plan-info-y {
+.plan-info-y,
+.plan-price {
     font-size: 1.5rem;
     color: var(--clr-neutral-500);
 }
@@ -394,7 +395,7 @@ main {
     align-items: center;
     padding: 2rem 2rem 0 2rem;
 }
-.plan-price {
+.plan-price-summary {
     color: var(--clr-accent-600);
     font-weight: var(--fw-bold);
 }
