@@ -121,6 +121,6 @@ const planOptions = document.getElementsByClassName("plan-option");
 
 for(let i = 0; i < planOptions.length; i++){
   planOptions[i].addEventListener("click", function(){
-    console.log(Number(planOptions[i].querySelector(".plan-info-m").textContent));
+    console.log(parseInt(planOptions[i].querySelector(".plan-price").textContent));
   })
 }
