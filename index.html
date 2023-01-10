@@ -57,7 +57,7 @@
       <!-- Sidebar Content -->
       <div class="sidebar-content">
         <!-- STEP 1 CONTENT -->
-        <div class="step-content step-1-content">
+        <div class="step-content step-1-content display-none">
           <div class="step-content-main">
             <!-- Header -->
             <header class="primary-header">
@@ -96,7 +96,7 @@
           </div>
         </div>
         <!-- STEP 2 CONTENT-->
-        <div class="step-content step-2-content display-none">
+        <div class="step-content step-2-content">
           <div class="step-content-main">
             <!-- Header -->
             <header class="primary-header">
@@ -105,22 +105,25 @@
             </header>
             <!-- Plan Options -->
             <div class="plan-options">
-              <button class="plan-option-active">
+              <button class="plan-option plan-option-active">
                 <img src="assets/images/icon-arcade.svg" alt="">
                 <h3 class="tertiary-heading">Arcade</h3>
-                <p class="plan-info">$9/mo</p>
+                <p class="plan-info-m">$9/mo</p>
+                <p class="plan-info-y display-none">$90/yr</p>
                 <p class="plan-info-extra display-none">2 months free</p>
               </button>
-              <button>
+              <button class="plan-option">
                 <img src="assets/images/icon-advanced.svg" alt="">
                 <h3 class="tertiary-heading">Advanced</h3>
-                <p class="plan-info">$12/mo</p>
+                <p class="plan-info-m">$12/mo</p>
+                <p class="plan-info-y display-none">$120/yr</p>
                 <p class="plan-info-extra display-none">2 months free</p>
               </button>
-              <button>
+              <button class="plan-option">
                 <img src="assets/images/icon-pro.svg" alt="">
                 <h3 class="tertiary-heading">Pro</h3>
-                <p class="plan-info">$15/mo</p>
+                <p class="plan-info-m">$15/mo</p>
+                <p class="plan-info-y display-none">$150/yr</p>
                 <p class="plan-info-extra display-none">2 months free</p>
               </button>
             </div>
@@ -128,7 +131,7 @@
             <div class="switch-toggle">
               <p>Monthly</p>
               <label class="switch">
-                <input type="checkbox">
+                <input type="checkbox" class="switch-toggle-button">
                 <span class="slider round"></span>
               </label>
               <p>Yearly</p>

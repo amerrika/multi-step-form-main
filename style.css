@@ -320,7 +320,8 @@ main {
 .plan-options .tertiary-heading {
     margin-top: 4rem;
 }
-.plan-info {
+.plan-info-m,
+.plan-info-y {
     font-size: 1.5rem;
     color: var(--clr-neutral-500);
 }

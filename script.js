@@ -2,6 +2,7 @@ const reqFields = document.getElementsByClassName("form-input");
 const btnNext = document.querySelector(".btn-next");
 const step1El = document.querySelector(".step-1-content");
 const step2El = document.querySelector(".step-2-content");
+const sidebar = document.querySelector(".sidebar")
 const inputEmail = reqFields[1];
 const inputPhone = reqFields[2];
 
@@ -76,8 +77,9 @@ btnNext.addEventListener("click", function (e) {
     reqFields[1].value !== "" &&
     reqFields[2].value !== ""
   ) {
-    // do your action
+    // Hide Step 1
     step1El.classList.add("display-none");
+    // Display Step 2
     step2El.classList.remove("display-none");
   } 
   // if there is an empty field, display a warning message
@@ -92,3 +94,25 @@ btnNext.addEventListener("click", function (e) {
     }
   }
 });
+
+
+// STEP 2
+
+// treba mi u varijabli spremljen naziv i cijena odabranog plana koji će se koristiti u step 4 za prikaz
+
+// toggle button, switch between monthly and yearly plan data
+
+// default prikaz monthly
+
+const btnToggle = document.querySelector(".switch-toggle-button");
+const monPlans = document.getElementsByClassName("plan-info-m");
+const yearPlans = document.getElementsByClassName("plan-info-y");
+const extraInfos = document.getElementsByClassName("plan-info-extra")
+
+btnToggle.addEventListener("click", function(){
+  for(let i = 0; i < 3; i++){
+    yearPlans[i].classList.remove("display-none");
+    extraInfos[i].classList.remove("display-none");
+    monPlans[i].classList.add("display-none");
+  }
+})
