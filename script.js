@@ -98,8 +98,6 @@ btnNext.addEventListener("click", function (e) {
 
 // STEP 2
 
-// treba mi u varijabli spremljen naziv i cijena odabranog plana koji će se koristiti u step 4 za prikaz
-
 // toggle button, switch between monthly and yearly plan data
 
 // default prikaz monthly
@@ -116,3 +114,13 @@ btnToggle.addEventListener("click", function(){
     monPlans[i].classList.add("display-none");
   }
 })
+
+
+// getting infos (name, price) from selected plan;
+const planOptions = document.getElementsByClassName("plan-option");
+
+for(let i = 0; i < planOptions.length; i++){
+  planOptions[i].addEventListener("click", function(){
+    console.log(Number(planOptions[i].querySelector(".plan-info-m").textContent));
+  })
+}
