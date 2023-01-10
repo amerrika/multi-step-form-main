@@ -127,6 +127,7 @@ let planPrice;
 let planTitle;
 
 for (let i = 0; i < planOptions.length; i++) {
+  // Plan Button Operation
   planOptions[i].addEventListener("click", function () {
     // yearly prices
     if (
@@ -147,7 +148,29 @@ for (let i = 0; i < planOptions.length; i++) {
 
     //adding active class
     planOptions[i].classList.toggle("plan-option-active");
+
     // remove active class from no active buttons
+    for(let j = 0; j < planOptions.length; j++){
+      if(planOptions[j] !== planOptions[i]){
+        planOptions[j].classList.remove("plan-option-active");
+      }
+    }
   });
+}
+
+// Button Back is on step 2, step 3, step 4
+const steps = document.getElementsByClassName("step-content");
+
+// We need to define Button Back depending what step is currently displayed
+for(let i = 0; i < steps.length; i++){
+  if(!steps[i].classList.contains("display-none")){
+    // Defining Button Back
+    const btnBack = steps[i].querySelector(".btn-back");
+    // Button Back Event
+    btnBack.addEventListener("click", function(){
+      steps[i].classList.add("display-none")
+      steps[i - 1].classList.remove("display-none")
+    })
+  } 
 }
 
