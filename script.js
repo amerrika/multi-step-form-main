@@ -133,20 +133,23 @@ for (let i = 0; i < planOptions.length; i++) {
 
 /////////////////////////// STEP 3 ////////////////////////////////////
 const addOnAll = document.getElementsByClassName("add-ons-row");
-
+let addOnTitle;
+let addOnPrice;
 
 for(let i = 0; i < addOnAll.length; i++){
   addOnAll[i].addEventListener("click", function(){
-    const addOnTitle = addOnAll[i].querySelector(".tertiary-heading").textContent;
-    const addOnPrice = addOnAll[i].querySelector(".add-ons-price").textContent;
-    console.log(addOnTitle, addOnPrice)
+    addOnAll[i].classList.toggle("add-on-active");
+      if(addOnAll[i].classList.contains("add-on-active")){
+      addOnTitle = addOnAll[i].querySelector(".tertiary-heading").textContent;
+      addOnPrice = addOnAll[i].querySelector(".add-ons-price").textContent;
+      } else {
+        addOnTitle = "";
+        addOnPrice = "";
+      }
   })
 }
 
-
-
 /////////////////// BUTTON NEXT, BUTTON BACK, BUTTON CONFIRM /////////////////////
-
 
 // Button Back Function
 const goBack = () => {
