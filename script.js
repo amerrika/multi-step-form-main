@@ -5,8 +5,11 @@ const step2El = document.querySelector(".step-2-content");
 const sidebar = document.querySelector(".sidebar");
 const inputEmail = reqFields[1];
 const inputPhone = reqFields[2];
+const steps = document.getElementsByClassName("step-content");
+const btnBackAll = document.getElementsByClassName("btn-back");
+const btnNextAll = document.getElementsByClassName("btn-next");
 
-// STEP 1
+///////////////////// STEP 1 //////////////////////////////
 
 // Starting conditions
 
@@ -69,43 +72,7 @@ inputPhone.addEventListener("change", function (e) {
   validatePhone(inputPhone);
 });
 
-// Button Next Operation
-btnNext.addEventListener("click", function (e) {
-  // Prevent default form behaviour
-  e.preventDefault();
-  // No input field must be empty to proceed with button next
-  if (
-    reqFields[0].value !== "" &&
-    reqFields[1].value !== "" &&
-    reqFields[2].value !== ""
-  ) {
-    // Hide Step 1
-    step1El.classList.add("display-none");
-    // Display Step 2
-    step2El.classList.remove("display-none");
-  }
-  // if there is an empty field, display a warning message
-  else {
-    for (let i = 0; i < reqFields.length; i++) {
-      if (reqFields[i].value == "") {
-        reqFields[
-          i
-        ].parentElement.firstElementChild.lastElementChild.classList.remove(
-          "display-none"
-        );
-      } else {
-        // Remove the warning message
-        reqFields[
-          i
-        ].parentElement.firstElementChild.lastElementChild.classList.add(
-          "display-none"
-        );
-      }
-    }
-  }
-});
-
-// STEP 2
+////////////////// STEP 2 //////////////////////////////////////
 
 // Toggle Button Operation: switch between monthly and yearly plan data
 const btnToggle = document.querySelector(".switch-toggle-button");
@@ -160,24 +127,86 @@ for (let i = 0; i < planOptions.length; i++) {
       planPrice = "";
       planTitle = "";
     }
-    
-    console.log(planPrice, planTitle)
+    console.log(planTitle, planPrice)
   }); // End of Event
 } // End of first for loop
 
-// Button Back (is on step 2, step 3, step 4)
-const steps = document.getElementsByClassName("step-content");
+/////////////////////////// STEP 3 ////////////////////////////////////
 
-// We need to define Button Back depending what step is currently displayed
-for(let i = 0; i < steps.length; i++){
-  if(!steps[i].classList.contains("display-none")){
-    // Defining Button Back
-    const btnBack = steps[i].querySelector(".btn-back");
-    // Button Back Event
-    btnBack.addEventListener("click", function(){
+
+
+/////////////////// BUTTON NEXT, BUTTON BACK, BUTTON CONFIRM /////////////////////
+
+
+// Button Back Function
+const goBack = () => {
+  for(let i = 0; i < steps.length; i++){
+    if(!steps[i].classList.contains("display-none")){
+      console.log(i)
       steps[i].classList.add("display-none")
-      steps[i - 1].classList.remove("display-none")
-    })
-  } 
+      steps[i-1].classList.remove("display-none")
+    } 
+  }
 }
 
+// All Button BACK click event;
+for(const btn of btnBackAll){
+  btn.addEventListener("click", goBack);
+}
+
+// Button NEXT 1
+btnNext.addEventListener("click", function (e) {
+  // Prevent default form behaviour
+  e.preventDefault();
+  // No input field must be empty to proceed with button next
+  if (
+    reqFields[0].value !== "" &&
+    reqFields[1].value !== "" &&
+    reqFields[2].value !== ""
+  ) {
+    // Hide Step 1
+    step1El.classList.add("display-none");
+    // Display Step 2
+    step2El.classList.remove("display-none");
+  }
+  // if there is an empty field, display a warning message
+  else {
+    for (let i = 0; i < reqFields.length; i++) {
+      if (reqFields[i].value == "") {
+        reqFields[
+          i
+        ].parentElement.firstElementChild.lastElementChild.classList.remove(
+          "display-none"
+        );
+      } else {
+        // Remove the warning message
+        reqFields[
+          i
+        ].parentElement.firstElementChild.lastElementChild.classList.add(
+          "display-none"
+        );
+      }
+    }
+  }
+});
+
+// Button NEXT 2
+const btnNext2 = document.getElementsByClassName("btn-next")[1];
+btnNext2.addEventListener("click", function(){
+  step2El.classList.add("display-none");
+  steps[2].classList.remove("display-none");
+})
+
+// Button NEXT 3
+const btnNext3 = document.getElementsByClassName("btn-next")[2];
+btnNext3.addEventListener("click", function(){
+  steps[2].classList.add("display-none");
+  steps[3].classList.remove("display-none");
+})
+
+// Button CONFIRM
+const btnConfirm = document.getElementsByClassName("btn-confirm")[0];
+btnConfirm.addEventListener("click", function(){
+  steps[3].classList.add("display-none");
+  document.querySelector(".step-5").classList.remove("display-none");
+})
