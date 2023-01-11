@@ -121,7 +121,7 @@ btnToggle.addEventListener("click", function () {
   }
 });
 
-// Getting infos (name and price) from a selected plan;
+// Getting name and price from a selected plan;
 const planOptions = document.getElementsByClassName("plan-option");
 let planPrice;
 let planTitle;
@@ -144,7 +144,6 @@ for (let i = 0; i < planOptions.length; i++) {
     }
     // getting title
     planTitle = planOptions[i].querySelector(".tertiary-heading").textContent;
-    console.log(planPrice, planTitle)
 
     //adding active class
     planOptions[i].classList.toggle("plan-option-active");
@@ -155,10 +154,18 @@ for (let i = 0; i < planOptions.length; i++) {
         planOptions[j].classList.remove("plan-option-active");
       }
     }
-  });
-}
 
-// Button Back is on step 2, step 3, step 4
+    // Clear price and title variable if plan does not contain active-class
+    if(!planOptions[i].classList.contains("plan-option-active")){
+      planPrice = "";
+      planTitle = "";
+    }
+    
+    console.log(planPrice, planTitle)
+  }); // End of Event
+} // End of first for loop
+
+// Button Back (is on step 2, step 3, step 4)
 const steps = document.getElementsByClassName("step-content");
 
 // We need to define Button Back depending what step is currently displayed
