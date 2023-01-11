@@ -132,6 +132,16 @@ for (let i = 0; i < planOptions.length; i++) {
 } // End of first for loop
 
 /////////////////////////// STEP 3 ////////////////////////////////////
+const addOnAll = document.getElementsByClassName("add-ons-row");
+
+
+for(let i = 0; i < addOnAll.length; i++){
+  addOnAll[i].addEventListener("click", function(){
+    const addOnTitle = addOnAll[i].querySelector(".tertiary-heading").textContent;
+    const addOnPrice = addOnAll[i].querySelector(".add-ons-price").textContent;
+    console.log(addOnTitle, addOnPrice)
+  })
+}
 
 
 
