@@ -132,6 +132,7 @@ for (let i = 0; i < planOptions.length; i++) {
 } // End of first for loop
 
 /////////////////////////// STEP 3 ////////////////////////////////////
+
 const addOnAll = document.getElementsByClassName("add-ons-row");
 let addOnTitle;
 let addOnPrice;
@@ -148,6 +149,8 @@ for(let i = 0; i < addOnAll.length; i++){
       }
   })
 }
+
+// Potrebno napisati, ako je izabran plan yearli potrebno promijeniti cijene
 
 /////////////////// BUTTON NEXT, BUTTON BACK, BUTTON CONFIRM /////////////////////
 
