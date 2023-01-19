@@ -376,7 +376,8 @@ main {
     color: var(--clr-neutral-500);
     font-size: 1.5rem;
 }
-.add-ons-price {
+.add-ons-price-m,
+.add-ons-price-y {
     font-size: 1.5rem;
     color: var(--clr-primary-blue-600);
     flex-grow: 2;

@@ -1,3 +1,5 @@
+'use strict';
+
 const reqFields = document.getElementsByClassName("form-input");
 const btnNext = document.querySelector(".btn-next");
 const step1El = document.querySelector(".step-1-content");
@@ -13,7 +15,7 @@ const btnNextAll = document.getElementsByClassName("btn-next");
 
 // Starting conditions
 
-function init() {
+const init = function() {
   // Clear all input fields
   for (let i = 0; i < reqFields.length; i++) {
     reqFields[i].value = "";
@@ -23,7 +25,7 @@ function init() {
 init();
 
 // Email Input Validation
-function validateEmail(mail) {
+const validateEmail = function(mail) {
   // if entered text is ok
   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail.value)) {
     // remove potential warning message
@@ -48,7 +50,7 @@ inputEmail.addEventListener("change", function (e) {
 });
 
 // Phone Number Validation
-function validatePhone(number) {
+const validatePhone = function(number) {
   // If input is not a digit
   if (isNaN(number.value)) {
     // Display the warning message
@@ -72,9 +74,9 @@ inputPhone.addEventListener("change", function (e) {
   validatePhone(inputPhone);
 });
 
-////////////////// STEP 2 //////////////////////////////////////
+////////////////// STEP 2 //////////////////
 
-// Toggle Button Operation: switch between monthly and yearly plan data
+// Toggle Button: switch between monthly and yearly plan data
 const btnToggle = document.querySelector(".switch-toggle-button");
 const monPlans = document.getElementsByClassName("plan-info-m");
 const yearPlans = document.getElementsByClassName("plan-info-y");
@@ -89,83 +91,102 @@ btnToggle.addEventListener("click", function () {
 });
 
 // Getting name and price from a selected plan;
-const planOptions = document.getElementsByClassName("plan-option");
-let planPrice;
-let planTitle;
+const plans = document.getElementsByClassName("plan-option");
 
-for (let i = 0; i < planOptions.length; i++) {
-  // Plan Button Operation
-  planOptions[i].addEventListener("click", function () {
-    // yearly prices
+for (let i = 0; i < plans.length; i++) {
+  // Click Event for Every Plan
+  plans[i].addEventListener("click", function () {
+    let planPrice;
+
     if (
+      // getting yearly prices
       document.querySelector(".plan-info-m").classList.contains("display-none")
     ) {
-      planPrice = parseInt(
-        planOptions[i].querySelectorAll(".plan-price")[1].textContent
-      );
+      planPrice = plans[i].querySelectorAll(".plan-price")[1].textContent;
     } else {
-      // monthly prices
-      planPrice = parseInt(
-        planOptions[i].querySelectorAll(".plan-price")[0].textContent
-      );
+      // getting monthly prices
+      planPrice = plans[i].querySelectorAll(".plan-price")[0].textContent;
     }
     // getting title
-    planTitle = planOptions[i].querySelector(".tertiary-heading").textContent;
+    let planTitle = plans[i].querySelector(".tertiary-heading").textContent;
+    
 
     //adding active class
-    planOptions[i].classList.toggle("plan-option-active");
+    plans[i].classList.toggle("plan-option-active");
 
     // remove active class from no active buttons
-    for(let j = 0; j < planOptions.length; j++){
-      if(planOptions[j] !== planOptions[i]){
-        planOptions[j].classList.remove("plan-option-active");
+    for(let j = 0; j < plans.length; j++){
+      if(plans[j] !== plans[i]){
+        plans[j].classList.remove("plan-option-active");
       }
     }
 
     // Clear price and title variable if plan does not contain active-class
-    if(!planOptions[i].classList.contains("plan-option-active")){
+    if(!plans[i].classList.contains("plan-option-active")){
       planPrice = "";
       planTitle = "";
     }
-    console.log(planTitle, planPrice)
-  }); // End of Event
+    updateSummary(planTitle, planPrice);
+  }); // End of Click Event
 } // End of first for loop
 
-/////////////////////////// STEP 3 ////////////////////////////////////
+////////////////// STEP 3 //////////////////
 
 const addOnAll = document.getElementsByClassName("add-ons-row");
 let addOnTitle;
 let addOnPrice;
-
 for(let i = 0; i < addOnAll.length; i++){
+  // Click Event for Every Add-On
   addOnAll[i].addEventListener("click", function(){
     addOnAll[i].classList.toggle("add-on-active");
-      if(addOnAll[i].classList.contains("add-on-active")){
+    // We need price and title only of selected add-on/s
+    if(addOnAll[i].classList.contains("add-on-active")){
       addOnTitle = addOnAll[i].querySelector(".tertiary-heading").textContent;
-      addOnPrice = addOnAll[i].querySelector(".add-ons-price").textContent;
+      // if add-on contains display-none => yearly prices (2 different paragraphs in HTML, add-ons-price-m and add-ons-price-y)
+      if(addOnAll[i].lastElementChild.classList.contains("display-none")){
+        addOnPrice = addOnAll[i].querySelector(".add-ons-price").textContent;
+        // if add-on doesn't contain display-none => monthly prices
       } else {
-        addOnTitle = "";
-        addOnPrice = "";
+        addOnPrice = addOnAll[i].querySelectorAll(".add-ons-price")[1].textContent;
       }
-  })
+      // Add-on/s are not selected => need no data   
+    } else {
+      addOnTitle = "";
+      addOnPrice = "";
+    }  
+    console.log(addOnTitle, addOnPrice)
+  }) // End of Click Event
 }
 
-// Potrebno napisati, ako je izabran plan yearli potrebno promijeniti cijene
+// monthly or yearly add-on prices depending on selected plan price in step 2
+const updateAddOnPrices = function(){
+  for(let i = 0; i < 3; i++){
+    if (document.querySelectorAll(".plan-info-m")[i].classList.contains("display-none"))
+     {
+      document.querySelectorAll(".add-ons-price-m")[i].classList.add("display-none");
+      document.querySelectorAll(".add-ons-price-y")[i].classList.remove("display-none");
+    }
+  }
+} // will be called on step 2 with button next
 
-/////////////////// BUTTON NEXT, BUTTON BACK, BUTTON CONFIRM /////////////////////
+////////////////// STEP 4 //////////////////
 
-// Button Back Function
+function updateSummary(planTitle, planPrice){
+  const labelTitel = document.querySelector(".plan-title").textContent = planTitle;
+  const labelPrice = document.querySelector(".plan-price-summary").textContent = planPrice;
+}
+
+////////////////// BUTTONS BACK, NEXT, CONFIRM //////////////////
+
 const goBack = () => {
   for(let i = 0; i < steps.length; i++){
     if(!steps[i].classList.contains("display-none")){
-      console.log(i)
       steps[i].classList.add("display-none")
       steps[i-1].classList.remove("display-none")
     } 
   }
 }
-
-// All Button BACK click event;
+// Click Event for Every Button Back
 for(const btn of btnBackAll){
   btn.addEventListener("click", goBack);
 }
@@ -175,32 +196,23 @@ btnNext.addEventListener("click", function (e) {
   // Prevent default form behaviour
   e.preventDefault();
   // No input field must be empty to proceed with button next
-  if (
-    reqFields[0].value !== "" &&
-    reqFields[1].value !== "" &&
-    reqFields[2].value !== ""
-  ) {
-    // Hide Step 1
+  if (reqFields[0].value !== "" &&
+      reqFields[1].value !== "" &&
+      reqFields[2].value !== ""
+    ) {
+    // Hide Step 1 and display Step 2
     step1El.classList.add("display-none");
-    // Display Step 2
     step2El.classList.remove("display-none");
   }
   // if there is an empty field, display a warning message
   else {
     for (let i = 0; i < reqFields.length; i++) {
       if (reqFields[i].value == "") {
-        reqFields[
-          i
-        ].parentElement.firstElementChild.lastElementChild.classList.remove(
-          "display-none"
-        );
+        // Display warning message that is by default hidden
+        reqFields[i].parentElement.firstElementChild.lastElementChild.classList.remove("display-none");
       } else {
         // Remove the warning message
-        reqFields[
-          i
-        ].parentElement.firstElementChild.lastElementChild.classList.add(
-          "display-none"
-        );
+        reqFields[i].parentElement.firstElementChild.lastElementChild.classList.add("display-none");
       }
     }
   }
@@ -208,21 +220,29 @@ btnNext.addEventListener("click", function (e) {
 
 // Button NEXT 2
 const btnNext2 = document.getElementsByClassName("btn-next")[1];
-btnNext2.addEventListener("click", function(){
+btnNext2.addEventListener("click", () => {
+  updateAddOnPrices();
   step2El.classList.add("display-none");
   steps[2].classList.remove("display-none");
 })
 
 // Button NEXT 3
 const btnNext3 = document.getElementsByClassName("btn-next")[2];
-btnNext3.addEventListener("click", function(){
+btnNext3.addEventListener("click", () => {
   steps[2].classList.add("display-none");
   steps[3].classList.remove("display-none");
 })
 
 // Button CONFIRM
 const btnConfirm = document.getElementsByClassName("btn-confirm")[0];
-btnConfirm.addEventListener("click", function(){
+btnConfirm.addEventListener("click", () => {
   steps[3].classList.add("display-none");
   document.querySelector(".step-5").classList.remove("display-none");
+})
+
+// Button Change
+const  btnChange = document.querySelector(".btn-change");
+btnChange.addEventListener("click", () => {
+  steps[3].classList.add("display-none");
+  steps[1].classList.remove("display-none");
 })
