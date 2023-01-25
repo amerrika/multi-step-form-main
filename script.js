@@ -74,7 +74,7 @@ inputPhone.addEventListener("change", function (e) {
   validatePhone(inputPhone);
 });
 
-////////////////// STEP 2 //////////////////
+////////////////// STEP 2: PLANS  //////////////////
 
 // Toggle Button: switch between monthly and yearly plan data
 const btnToggle = document.querySelector(".switch-toggle-button");
@@ -126,11 +126,11 @@ for (let i = 0; i < plans.length; i++) {
       planPrice = "";
       planTitle = "";
     }
-    updateSummary(planTitle, planPrice);
+    updateSummaryPlans(planTitle, planPrice);
   }); // End of Click Event
 } // End of first for loop
 
-////////////////// STEP 3 //////////////////
+////////////////// STEP 3: ADD ONS //////////////////
 
 const addOnAll = document.getElementsByClassName("add-ons-row");
 let addOnTitle;
@@ -149,12 +149,13 @@ for(let i = 0; i < addOnAll.length; i++){
       } else {
         addOnPrice = addOnAll[i].querySelectorAll(".add-ons-price")[1].textContent;
       }
+      updateSummaryAddons(addOnPrice, addOnTitle)
       // Add-on/s are not selected => need no data   
     } else {
       addOnTitle = "";
       addOnPrice = "";
     }  
-    console.log(addOnTitle, addOnPrice)
+    console.log(addOnPrice, addOnTitle)
   }) // End of Click Event
 }
 
@@ -169,11 +170,25 @@ const updateAddOnPrices = function(){
   }
 } // will be called on step 2 with button next
 
+
 ////////////////// STEP 4 //////////////////
 
-function updateSummary(planTitle, planPrice){
+function updateSummaryPlans(planTitle, planPrice){
   const labelTitel = document.querySelector(".plan-title").textContent = planTitle;
   const labelPrice = document.querySelector(".plan-price-summary").textContent = planPrice;
+}
+
+function updateSummaryAddons(price, title){
+  if(price !== ""){
+    const html = `
+  <div class="summary-bottom-row">
+    <p class="add-on-description">${title}</p>
+    <p class="add-on-price">${price}</p>
+  </div>
+`
+const summaryContainer = document.querySelector(".summary-display-bottom");
+summaryContainer.insertAdjacentHTML("afterbegin", html);
+  }
 }
 
 ////////////////// BUTTONS BACK, NEXT, CONFIRM //////////////////
