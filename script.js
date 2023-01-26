@@ -149,11 +149,13 @@ for(let i = 0; i < addOnAll.length; i++){
       } else {
         addOnPrice = addOnAll[i].querySelectorAll(".add-ons-price")[1].textContent;
       }
+      // console.log("Sa cijenom: ",addOnAll[i])
       updateSummaryAddons(addOnPrice, addOnTitle)
       // Add-on/s are not selected => need no data   
     } else {
       addOnTitle = "";
       addOnPrice = "";
+      // console.log("Bez cijene: ",addOnAll[i])
     }  
     console.log(addOnPrice, addOnTitle)
   }) // End of Click Event
@@ -246,6 +248,7 @@ const btnNext3 = document.getElementsByClassName("btn-next")[2];
 btnNext3.addEventListener("click", () => {
   steps[2].classList.add("display-none");
   steps[3].classList.remove("display-none");
+  console.log(document.querySelectorAll(".summary-bottom-row"))
 })
 
 // Button CONFIRM
